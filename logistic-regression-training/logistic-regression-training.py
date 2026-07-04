@@ -10,18 +10,18 @@ def train_logistic_regression(X, y, lr=0.1, steps=1000):
     Return (w, b).
     """
     N, features = X.shape
-    w = np.zeros(features)  # weights 0 se start
-    b = 0                   # bias 0 se start
+    w = np.zeros(features)  # weights 0 from start
+    b = 0                   # bias 0 from start
 
     for i in range(steps):
         # Step 1: Predict karo
         p = _sigmoid(X @ w + b)
 
-        # Step 2: Gradient nikalo (kitna adjust karna hai)
+        # Step 2: Gradient 
         dw = (1/N) * X.T @ (p - y)
         db = (1/N) * np.sum(p - y)
 
-        # Step 3: Weights update karo
+        # Step 3: Weights update 
         w = w - lr * dw
         b = b - lr * db
 
